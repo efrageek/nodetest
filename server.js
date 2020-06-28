@@ -22,8 +22,14 @@ app.post('/api/add', (req, res) => {
 
 
     if (req.body) {
-        db.add (req.body);
-        res.status(201).send('Restaurant agregado correctamente');
+        const restAdded = db.add (req.body);
+        if (restAdded) {
+            res.status(201).send('Restaurant agregado correctamente');
+        }else {
+            console.log('error');
+            res.status(401).send('El nombre del restaurant ya existe');
+        }
+
     }
 });
 

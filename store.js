@@ -1,9 +1,21 @@
 const myRestaurants = [];
-const restaurantsNames = [];
+
+
+//Finding if the incoming rest have the same name off some added rest.
+const restNameChecker = rest => rest.name === restaurant.name;
+
+
 
 function addRest (restaurant) {
-    myRestaurants.push(restaurant);
-    restaurantsNames.push(restaurant.name);
+    const chekedName = myRestaurants.some(restNameChecker);
+
+    if (!chekedName) {
+        myRestaurants.push(restaurant);
+        return true
+    }else {
+        return false
+    }
+    
 };
 
 function listRest () {
